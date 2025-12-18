@@ -1,0 +1,1018 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Community Alert: Nate Stark Scam Report</title>
+    <meta
+      name="description"
+      content="Community resource for victims of Nate Stark in Miami-Dade and Broward. Report fraud regarding tickets, colognes, and loans."
+    />
+    <!-- Tailwind CSS for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome for Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <style>
+      /* Custom Styles for smoothness */
+      html {
+        scroll-behavior: smooth;
+      }
+      .hero-bg {
+        background-image: linear-gradient(
+            rgba(0, 0, 0, 0.8),
+            rgba(0, 0, 0, 0.8)
+          ),
+          url("wow.png");
+        background-size: cover;
+        background-position: center;
+      }
+      .evidence-card:hover {
+        transform: translateY(-5px);
+        transition: all 0.3s ease;
+      }
+
+      /* Gallery Hover Zoom Effect */
+      .gallery-item {
+        overflow: hidden;
+        cursor: pointer;
+      }
+      .gallery-item img {
+        transition: transform 0.3s ease;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .gallery-item:hover img {
+        transform: scale(1.05);
+      }
+
+      /* Lightbox Styles */
+      .lightbox {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.95);
+        z-index: 1000;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
+      .lightbox.active {
+        display: flex;
+      }
+      .lightbox-content {
+        max-width: 90%;
+        max-height: 80vh;
+        object-fit: contain;
+        border-radius: 8px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+      }
+      .lightbox-close {
+        position: absolute;
+        top: 20px;
+        right: 30px;
+        color: white;
+        font-size: 40px;
+        cursor: pointer;
+        transition: color 0.3s;
+        z-index: 1001;
+      }
+      .lightbox-close:hover {
+        color: #ef4444;
+      }
+      .lightbox-download {
+        margin-top: 20px;
+        padding: 12px 30px;
+        background: #ef4444;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background 0.3s;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .lightbox-download:hover {
+        background: #dc2626;
+      }
+      .lightbox-nav {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        color: white;
+        font-size: 50px;
+        cursor: pointer;
+        padding: 20px;
+        transition: color 0.3s;
+        user-select: none;
+      }
+      .lightbox-nav:hover {
+        color: #ef4444;
+      }
+      .lightbox-prev {
+        left: 20px;
+      }
+      .lightbox-next {
+        right: 20px;
+      }
+      /* Video gallery item styles */
+      .gallery-item video {
+        transition: transform 0.3s ease;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .gallery-item:hover video {
+        transform: scale(1.05);
+      }
+      .video-wrapper {
+        position: relative;
+        width: 100%;
+        height: 100%;
+      }
+      .play-icon {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 48px;
+        color: white;
+        text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+        pointer-events: none;
+      }
+      .lightbox-video {
+        max-width: 90%;
+        max-height: 80vh;
+        border-radius: 8px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+      }
+
+      /* Dark Mode Toggle Button */
+      .dark-mode-toggle {
+        background: transparent;
+        border: 2px solid white;
+        color: white;
+        padding: 6px 12px;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 14px;
+        transition: all 0.3s;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+      .dark-mode-toggle:hover {
+        background: white;
+        color: #7f1d1d;
+      }
+
+      /* Dark Mode Styles */
+      body.dark-mode {
+        background-color: #1a1a1a;
+        color: #e5e5e5;
+      }
+      body.dark-mode .bg-gray-50 {
+        background-color: #1a1a1a;
+      }
+      body.dark-mode .bg-white {
+        background-color: #262626;
+      }
+      body.dark-mode .bg-gray-100 {
+        background-color: #1f1f1f;
+      }
+      body.dark-mode .text-gray-800 {
+        color: #e5e5e5;
+      }
+      body.dark-mode .text-gray-900 {
+        color: #f5f5f5;
+      }
+      body.dark-mode .text-gray-700 {
+        color: #d4d4d4;
+      }
+      body.dark-mode .text-gray-600 {
+        color: #a3a3a3;
+      }
+      body.dark-mode .border-gray-200 {
+        border-color: #404040;
+      }
+      body.dark-mode .border-gray-100 {
+        border-color: #333;
+      }
+      body.dark-mode .bg-gray-200 {
+        background-color: #333;
+      }
+      body.dark-mode .shadow {
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+      }
+      body.dark-mode .shadow-md {
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+      }
+      body.dark-mode .shadow-lg {
+        box-shadow: 0 10px 15px rgba(0, 0, 0, 0.5);
+      }
+      body.dark-mode .evidence-card {
+        background-color: #262626;
+      }
+      body.dark-mode .bg-red-50 {
+        background-color: #3d1f1f;
+      }
+      body.dark-mode .bg-yellow-50 {
+        background-color: #3d3d1f;
+      }
+      body.dark-mode .text-yellow-800 {
+        color: #fcd34d;
+      }
+      body.dark-mode input,
+      body.dark-mode textarea {
+        background-color: #333 !important;
+        color: #e5e5e5 !important;
+        border-color: #404040 !important;
+      }
+      body.dark-mode input::placeholder,
+      body.dark-mode textarea::placeholder {
+        color: #737373;
+      }
+      body.dark-mode footer {
+        background-color: #0a0a0a;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-50 text-gray-800 font-sans">
+    <!-- Navigation -->
+    <nav class="bg-red-900 text-white sticky top-0 z-50 shadow-lg">
+      <div
+        class="container mx-auto px-6 py-4 flex justify-between items-center"
+      >
+        <a href="#" class="text-2xl font-bold uppercase tracking-wider"
+          >Fraud Alert</a
+        >
+        <div class="hidden md:flex space-x-6">
+          <a href="#profile" class="hover:text-red-300 transition"
+            >The Culprits</a
+          >
+          <a href="#gallery" class="hover:text-red-300 transition">Proof</a>
+          <a href="#proof" class="hover:text-red-300 transition">Scams</a>
+          <a href="#testimonies" class="hover:text-red-300 transition"
+            >Stories</a
+          >
+          <a
+            href="#report"
+            class="bg-white text-red-900 px-4 py-2 rounded font-bold hover:bg-gray-200 transition"
+            >Report Now</a
+          >
+        </div>
+        <!-- Dark Mode Toggle & Mobile Menu Button -->
+        <div class="flex items-center gap-4">
+          <button
+            id="dark-mode-btn"
+            class="dark-mode-toggle"
+            onclick="toggleDarkMode()"
+          >
+            <i class="fas fa-moon"></i>
+            <span class="hidden sm:inline">Dark</span>
+          </button>
+          <!-- Mobile Menu Button -->
+          <button id="mobile-menu-btn" class="md:hidden focus:outline-none">
+            <i class="fas fa-bars text-2xl"></i>
+          </button>
+        </div>
+      </div>
+      <!-- Mobile Menu -->
+      <div id="mobile-menu" class="hidden md:hidden bg-red-800 pb-4 px-6">
+        <a href="#profile" class="block py-2 hover:text-red-300"
+          >The Culprits</a
+        >
+        <a href="#gallery" class="block py-2 hover:text-red-300">Proof</a>
+        <a href="#proof" class="block py-2 hover:text-red-300">Scams</a>
+        <a href="#testimonies" class="block py-2 hover:text-red-300">Stories</a>
+        <a
+          href="#report"
+          class="block py-2 font-bold text-white bg-red-700 px-3 rounded mt-2"
+          >Report Now</a
+        >
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header
+      class="hero-bg h-screen flex items-center justify-center text-center px-6"
+    >
+      <div class="max-w-4xl">
+        <h1 class="text-4xl md:text-6xl font-bold text-white mb-6">
+          Stop <span class="text-red-500">Nate Stark</span>
+        </h1>
+        <p class="text-xl md:text-2xl text-gray-200 mb-8">
+          The 18-year-old serial scammer from Sunny Isles. Operating with
+          impunity. We are exposing the truth.
+        </p>
+        <div class="flex flex-col md:flex-row gap-4 justify-center">
+          <a
+            href="#report"
+            class="bg-red-600 hover:bg-red-700 text-white font-bold py-4 px-8 rounded-lg text-lg transition shadow-lg"
+          >
+            <i class="fas fa-gavel mr-2"></i> File Police Report
+          </a>
+          <a
+            href="#gallery"
+            class="bg-transparent border-2 border-white hover:bg-white hover:text-gray-900 text-white font-bold py-4 px-8 rounded-lg text-lg transition"
+          >
+            <i class="fas fa-images mr-2"></i> View Evidence
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <!-- PROFILE SECTION -->
+    <section id="profile" class="py-20 container mx-auto px-6 bg-white">
+      <div class="max-w-4xl mx-auto">
+        <h2
+          class="text-3xl font-bold text-gray-900 mb-8 text-center border-b-2 border-red-600 pb-4 inline-block"
+        >
+          The Individuals Involved
+        </h2>
+
+        <div class="flex flex-col md:flex-row gap-12 mt-8 items-start mb-16">
+          <!-- Text Content -->
+          <div class="flex-1 space-y-6 text-lg text-gray-700">
+            <p>
+              <strong class="text-red-700 text-xl">Nate Stark</strong> is an
+              18-year-old resident of <strong>Sunny Isles Beach, FL</strong>,
+              who has become notorious for orchestrating schemes involving fake
+              event tickets, undelivered luxury goods, and fraudulent loans.
+            </p>
+            <p>
+              He does not operate alone. Reports consistently identify his
+              <strong>brother</strong> as a key accomplice, assisting in the
+              collection of funds and the management of these deceptive
+              operations.
+            </p>
+            <div class="bg-red-50 p-6 rounded-lg border-l-4 border-red-700">
+              <h3 class="font-bold text-red-800 mb-2">
+                <i class="fas fa-balance-scale-right mr-2"></i>The Legal Shield
+              </h3>
+              <p class="text-sm md:text-base">
+                Victims seeking justice often face intimidation. It is alleged
+                that Nate's <strong>mother is a lawyer</strong> who actively
+                intervenes to protect her sons. Victims report receiving legal
+                threats instead of refunds, allowing the duo to continue their
+                activities without immediate consequence.
+              </p>
+            </div>
+          </div>
+
+          <!-- Graphic/Icon -->
+          <div class="w-full md:w-1/3 flex justify-center">
+            <div
+              class="bg-gray-100 rounded-full h-64 w-64 flex items-center justify-center border-4 border-red-600 overflow-hidden"
+            >
+              <img
+                src="nate.png"
+                alt="Nate Stark"
+                class="w-full h-full object-cover"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROOF GALLERY SECTION (Moved Up) -->
+    <section id="gallery" class="py-20 bg-gray-50 border-t border-gray-200">
+      <div class="container mx-auto px-6">
+        <h2 class="text-3xl font-bold text-center text-gray-900 mb-4">
+          Evidence & Messages
+        </h2>
+        <p class="text-center text-gray-600 mb-10 max-w-2xl mx-auto">
+          Real screenshots of conversations, transactions, and fake promises.
+        </p>
+
+        <div
+          class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-2 md:gap-4"
+        >
+          <!-- Gallery Item 1 -->
+          <div
+            class="gallery-item aspect-[3/4] bg-gray-200 rounded shadow border border-gray-200"
+            onclick="openLightbox('image (1).png')"
+          >
+            <img src="image (1).png" alt="Evidence" loading="lazy" />
+          </div>
+          <!-- Gallery Item 2 -->
+          <div
+            class="gallery-item aspect-[3/4] bg-gray-200 rounded shadow border border-gray-200"
+            onclick="openLightbox('image (2).png')"
+          >
+            <img src="image (2).png" alt="Evidence" loading="lazy" />
+          </div>
+          <!-- Gallery Item 3 -->
+          <div
+            class="gallery-item aspect-[3/4] bg-gray-200 rounded shadow border border-gray-200"
+            onclick="openLightbox('image (3).png')"
+          >
+            <img src="image (3).png" alt="Evidence" loading="lazy" />
+          </div>
+          <!-- Gallery Item 4 -->
+          <div
+            class="gallery-item aspect-[3/4] bg-gray-200 rounded shadow border border-gray-200"
+            onclick="openLightbox('image (4).png')"
+          >
+            <img src="image (4).png" alt="Evidence" loading="lazy" />
+          </div>
+          <!-- Gallery Item 5 -->
+          <div
+            class="gallery-item aspect-[3/4] bg-gray-200 rounded shadow border border-gray-200"
+            onclick="openLightbox('image (5).png')"
+          >
+            <img src="image (5).png" alt="Evidence" loading="lazy" />
+          </div>
+          <!-- Gallery Item 6 -->
+          <div
+            class="gallery-item aspect-[3/4] bg-gray-200 rounded shadow border border-gray-200"
+            onclick="openLightbox('image (7).png')"
+          >
+            <img src="image (7).png" alt="Evidence" loading="lazy" />
+          </div>
+          <!-- Gallery Item 7 -->
+          <div
+            class="gallery-item aspect-[3/4] bg-gray-200 rounded shadow border border-gray-200"
+            onclick="openLightbox('image (8).png')"
+          >
+            <img src="image (8).png" alt="Evidence" loading="lazy" />
+          </div>
+          <!-- Gallery Item 8 -->
+          <div
+            class="gallery-item aspect-[3/4] bg-gray-200 rounded shadow border border-gray-200"
+            onclick="openLightbox('image (9).png')"
+          >
+            <img src="image (9).png" alt="Evidence" loading="lazy" />
+          </div>
+          <!-- Gallery Item 9 -->
+          <div
+            class="gallery-item aspect-[3/4] bg-gray-200 rounded shadow border border-gray-200"
+            onclick="openLightbox('image (10).png')"
+          >
+            <img src="image (10).png" alt="Evidence" loading="lazy" />
+          </div>
+          <!-- Gallery Item 10 -->
+          <div
+            class="gallery-item aspect-[3/4] bg-gray-200 rounded shadow border border-gray-200"
+            onclick="openLightbox('image (11).png')"
+          >
+            <img src="image (11).png" alt="Evidence" loading="lazy" />
+          </div>
+          <!-- Gallery Item 11 -->
+          <div
+            class="gallery-item aspect-[3/4] bg-gray-200 rounded shadow border border-gray-200"
+            onclick="openLightbox('image (12).png')"
+          >
+            <img src="image (12).png" alt="Evidence" loading="lazy" />
+          </div>
+          <!-- Gallery Item 12 -->
+          <div
+            class="gallery-item aspect-[3/4] bg-gray-200 rounded shadow border border-gray-200"
+            onclick="openLightbox('image (13).png')"
+          >
+            <img src="image (13).png" alt="Evidence" loading="lazy" />
+          </div>
+          <!-- Gallery Item 13 -->
+          <div
+            class="gallery-item aspect-[3/4] bg-gray-200 rounded shadow border border-gray-200"
+            onclick="openLightbox('image (14).png')"
+          >
+            <img src="image (14).png" alt="Evidence" loading="lazy" />
+          </div>
+          <!-- Gallery Item 14 -->
+          <div
+            class="gallery-item aspect-[3/4] bg-gray-200 rounded shadow border border-gray-200"
+            onclick="openLightbox('ewwwwwwwww.png')"
+          >
+            <img src="ewwwwwwwww.png" alt="Evidence" loading="lazy" />
+          </div>
+          <!-- Gallery Item 15 -->
+          <div
+            class="gallery-item aspect-[3/4] bg-gray-200 rounded shadow border border-gray-200"
+            onclick="openLightbox('nate-stand.png')"
+          >
+            <img src="nate-stand.png" alt="Evidence" loading="lazy" />
+          </div>
+          <!-- Gallery Item 16 -->
+          <div
+            class="gallery-item aspect-[3/4] bg-gray-200 rounded shadow border border-gray-200"
+            onclick="openLightbox('natedas.png')"
+          >
+            <img src="natedas.png" alt="Evidence" loading="lazy" />
+          </div>
+          <!-- Gallery Item 17 -->
+          <div
+            class="gallery-item aspect-[3/4] bg-gray-200 rounded shadow border border-gray-200"
+            onclick="openLightbox('natescammer.png')"
+          >
+            <img src="natescammer.png" alt="Evidence" loading="lazy" />
+          </div>
+          <!-- Gallery Item 18 -->
+          <div
+            class="gallery-item aspect-[3/4] bg-gray-200 rounded shadow border border-gray-200"
+            onclick="openLightbox('natreasda.png')"
+          >
+            <img src="natreasda.png" alt="Evidence" loading="lazy" />
+          </div>
+          <!-- Gallery Item 19 -->
+          <div
+            class="gallery-item aspect-[3/4] bg-gray-200 rounded shadow border border-gray-200"
+            onclick="openLightbox('wow.png')"
+          >
+            <img src="wow.png" alt="Evidence" loading="lazy" />
+          </div>
+          <!-- Gallery Item 20 - New -->
+          <div
+            class="gallery-item aspect-[3/4] bg-gray-200 rounded shadow border border-gray-200"
+            onclick="openLightbox('IMG_2793.jpg')"
+          >
+            <img src="IMG_2793.jpg" alt="Evidence" loading="lazy" />
+          </div>
+          <!-- Gallery Item 21 - New -->
+          <div
+            class="gallery-item aspect-[3/4] bg-gray-200 rounded shadow border border-gray-200"
+            onclick="openLightbox('IMG_2794.png')"
+          >
+            <img src="IMG_2794.png" alt="Evidence" loading="lazy" />
+          </div>
+          <!-- Gallery Item 22 - New -->
+          <div
+            class="gallery-item aspect-[3/4] bg-gray-200 rounded shadow border border-gray-200"
+            onclick="openLightbox('IMG_2795.jpg')"
+          >
+            <img src="IMG_2795.jpg" alt="Evidence" loading="lazy" />
+          </div>
+          <!-- Video 1 -->
+          <div
+            class="gallery-item aspect-[3/4] bg-gray-800 rounded shadow border border-gray-200"
+            onclick="openVideoLightbox('0AD300DF-F63A-4663-BCD4-0F3F3C3684CE.mov')"
+          >
+            <div class="video-wrapper">
+              <video
+                src="0AD300DF-F63A-4663-BCD4-0F3F3C3684CE.mov"
+                muted
+                preload="metadata"
+              ></video>
+              <i class="fas fa-play-circle play-icon"></i>
+            </div>
+          </div>
+          <!-- Video 2 -->
+          <div
+            class="gallery-item aspect-[3/4] bg-gray-800 rounded shadow border border-gray-200"
+            onclick="openVideoLightbox('6342AF27-A8AE-457E-AF30-68D84C569B52.mov')"
+          >
+            <div class="video-wrapper">
+              <video
+                src="6342AF27-A8AE-457E-AF30-68D84C569B52.mov"
+                muted
+                preload="metadata"
+              ></video>
+              <i class="fas fa-play-circle play-icon"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Evidence Categories Section -->
+    <section id="proof" class="py-20 bg-white">
+      <div class="container mx-auto px-6">
+        <h2 class="text-3xl font-bold text-center text-gray-900 mb-12">
+          How They Steal
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <!-- Evidence Item 1: Tickets -->
+          <div
+            class="evidence-card bg-gray-50 rounded-lg shadow-md overflow-hidden border border-gray-100"
+          >
+            <div
+              class="h-48 bg-gray-800 flex items-center justify-center text-red-500"
+            >
+              <i class="fas fa-ticket-alt text-6xl"></i>
+            </div>
+            <div class="p-6">
+              <h3 class="font-bold text-xl mb-2 text-red-700">Fake Tickets</h3>
+              <p class="text-gray-600 text-sm">
+                Selling invalid tickets to high-demand events. When victims
+                arrive at the venue, the tickets scan as fake or already used.
+              </p>
+            </div>
+          </div>
+
+          <!-- Evidence Item 2: Colognes -->
+          <div
+            class="evidence-card bg-gray-50 rounded-lg shadow-md overflow-hidden border border-gray-100"
+          >
+            <div
+              class="h-48 bg-gray-800 flex items-center justify-center text-blue-400"
+            >
+              <i class="fas fa-spray-can text-6xl"></i>
+            </div>
+            <div class="p-6">
+              <h3 class="font-bold text-xl mb-2 text-blue-900">
+                Luxury Goods Scam
+              </h3>
+              <p class="text-gray-600 text-sm">
+                Taking deposits for expensive colognes or designer items. Once
+                payment is sent via Zelle, communication stops.
+              </p>
+            </div>
+          </div>
+
+          <!-- Evidence Item 3: Loans -->
+          <div
+            class="evidence-card bg-gray-50 rounded-lg shadow-md overflow-hidden border border-gray-100"
+          >
+            <div
+              class="h-48 bg-gray-800 flex items-center justify-center text-green-500"
+            >
+              <i class="fas fa-hand-holding-usd text-6xl"></i>
+            </div>
+            <div class="p-6">
+              <h3 class="font-bold text-xl mb-2 text-green-800">
+                The "Loan" Scheme
+              </h3>
+              <p class="text-gray-600 text-sm">
+                Asking for short-term loans for "business deals" with promises
+                of high returns. The money is never repaid.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonies -->
+    <section id="testimonies" class="py-20 bg-gray-100 container mx-auto px-6">
+      <h2 class="text-3xl font-bold text-center text-gray-900 mb-12">
+        Victim Testimonies
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+        <!-- Testimony 1 -->
+        <div class="bg-white p-8 rounded-lg shadow border border-gray-200">
+          <div class="flex items-center mb-4">
+            <div
+              class="w-10 h-10 rounded-full bg-red-100 flex items-center justify-center text-red-600 font-bold mr-3"
+            >
+              A
+            </div>
+            <div>
+              <h4 class="font-bold">Anonymous Victim</h4>
+              <span class="text-xs text-gray-500">Miami, FL</span>
+            </div>
+          </div>
+          <p class="text-gray-700">
+            "I gave him $500 for concert tickets. When I got to the Hard Rock,
+            they told me the tickets were already scanned. He blocked me
+            immediately."
+          </p>
+        </div>
+
+        <!-- Testimony 2 -->
+        <div class="bg-white p-8 rounded-lg shadow border border-gray-200">
+          <div class="flex items-center mb-4">
+            <div
+              class="w-10 h-10 rounded-full bg-red-100 flex items-center justify-center text-red-600 font-bold mr-3"
+            >
+              M
+            </div>
+            <div>
+              <h4 class="font-bold">Mike S.</h4>
+              <span class="text-xs text-gray-500">Broward County</span>
+            </div>
+          </div>
+          <p class="text-gray-700">
+            "He asked for a short-term loan for a 'business deal' with colognes.
+            Showed me fake inventory lists. I never saw my money again."
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Action Section: Report Links -->
+    <section id="report" class="py-20 bg-red-900 text-white">
+      <div class="container mx-auto px-6 text-center">
+        <h2 class="text-3xl md:text-4xl font-bold mb-8">Take Action Now</h2>
+        <p class="text-xl mb-12 max-w-2xl mx-auto">
+          If you have been scammed, silence helps the scammer. Please file
+          reports with these specific agencies immediately.
+        </p>
+
+        <div
+          class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto text-gray-900"
+        >
+          <!-- Miami Dade -->
+          <div
+            class="bg-white p-6 rounded-lg shadow-xl hover:shadow-2xl transition"
+          >
+            <h3 class="font-bold text-xl mb-4 text-blue-900">
+              Miami-Dade Police
+            </h3>
+            <p class="text-sm mb-4">
+              Report non-emergency fraud or commercial crimes occurring in
+              Miami-Dade.
+            </p>
+            <a
+              href="https://www.miamidade.gov/police/police-report.html"
+              target="_blank"
+              class="block w-full bg-blue-600 text-white font-bold py-3 rounded hover:bg-blue-700"
+              >File Online Report</a
+            >
+          </div>
+
+          <!-- Broward -->
+          <div
+            class="bg-white p-6 rounded-lg shadow-xl hover:shadow-2xl transition"
+          >
+            <h3 class="font-bold text-xl mb-4 text-green-900">
+              Broward Sheriff (BSO)
+            </h3>
+            <p class="text-sm mb-4">
+              Contact the Economic Crimes Unit for fraud in Broward County.
+            </p>
+            <a
+              href="https://www.sheriff.org/LE/Pages/SpecialUnits/EconomicCrimes/Default.aspx"
+              target="_blank"
+              class="block w-full bg-green-600 text-white font-bold py-3 rounded hover:bg-green-700"
+              >Visit Economic Crimes</a
+            >
+          </div>
+
+          <!-- Federal -->
+          <div
+            class="bg-white p-6 rounded-lg shadow-xl hover:shadow-2xl transition"
+          >
+            <h3 class="font-bold text-xl mb-4 text-gray-800">Federal (IC3)</h3>
+            <p class="text-sm mb-4">
+              The FBI's Internet Crime Complaint Center handles online scams.
+            </p>
+            <a
+              href="https://www.ic3.gov/"
+              target="_blank"
+              class="block w-full bg-gray-800 text-white font-bold py-3 rounded hover:bg-gray-900"
+              >File FBI Complaint</a
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Broadcast Form Section -->
+    <section id="share" class="py-20 container mx-auto px-6">
+      <div
+        class="max-w-3xl mx-auto bg-white p-8 rounded-lg shadow-lg border-t-4 border-red-600"
+      >
+        <h2 class="text-2xl font-bold mb-2 text-center">
+          Broadcast Your Report
+        </h2>
+        <p class="text-gray-600 mb-6 text-center">
+          Send your story directly to
+          <strong>Local 10, WSVN 7, NBC 6, and CBS 4</strong> investigators with
+          one click.
+        </p>
+
+        <div class="bg-yellow-50 border-l-4 border-yellow-500 p-4 mb-6">
+          <p class="text-sm text-yellow-800">
+            <i class="fas fa-exclamation-triangle mr-2"></i>
+            <strong>Important:</strong> This form opens your email app (Gmail,
+            Outlook, Mail). You <strong>MUST</strong> manually attach your
+            screenshots/proof in the email before sending.
+          </p>
+        </div>
+
+        <!-- Mailto form targeting multiple news stations -->
+        <form
+          action="mailto:share@local10.com,newsdesk@wsvn.com,tips@nbc6.com,newsdesk@cbs4.com,report@publicscams.org?subject=Scam Investigation: Nate Stark Fraud Report"
+          method="post"
+          enctype="text/plain"
+          class="space-y-4"
+        >
+          <div>
+            <label class="block text-gray-700 font-bold mb-2"
+              >Your Name & Contact Info</label
+            >
+            <input
+              type="text"
+              name="Contact_Info"
+              class="w-full p-3 border rounded bg-gray-50"
+              placeholder="Name and Phone Number (for reporters to contact you)"
+            />
+          </div>
+
+          <div>
+            <label class="block text-gray-700 font-bold mb-2"
+              >Scam Details (Date, Amount, What Happened)</label
+            >
+            <textarea
+              name="Story_Details"
+              class="w-full p-3 border rounded bg-gray-50 h-40"
+              placeholder="I was scammed by Nate Stark on [Date] for $[Amount]. Here is what happened..."
+            ></textarea>
+          </div>
+
+          <button
+            type="submit"
+            class="w-full bg-red-600 text-white font-bold py-4 rounded hover:bg-red-700 transition flex items-center justify-center text-lg"
+          >
+            <i class="fas fa-paper-plane mr-2"></i> Open Email to News Stations
+          </button>
+
+          <p class="text-xs text-gray-400 text-center mt-4">
+            Recipients include: Local 10 (WPLG), WSVN 7, NBC 6, CBS 4.
+          </p>
+        </form>
+      </div>
+    </section>
+
+    <footer class="bg-gray-900 text-gray-400 py-8 text-center">
+      <p>
+        &copy; 2024 Fraud Watch South Florida. This site is for informational
+        purposes only.
+      </p>
+    </footer>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+      <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+      <span
+        class="lightbox-nav lightbox-prev"
+        onclick="event.stopPropagation(); navigateLightbox(-1)"
+        >&#10094;</span
+      >
+      <img
+        id="lightbox-img"
+        class="lightbox-content"
+        onclick="event.stopPropagation()"
+        src=""
+        alt="Evidence"
+      />
+      <span
+        class="lightbox-nav lightbox-next"
+        onclick="event.stopPropagation(); navigateLightbox(1)"
+        >&#10095;</span
+      >
+      <a
+        id="lightbox-download-btn"
+        class="lightbox-download"
+        href=""
+        download
+        onclick="event.stopPropagation()"
+      >
+        <i class="fas fa-download"></i> Download Image
+      </a>
+    </div>
+
+    <script>
+      // Mobile Menu Toggle
+      const btn = document.getElementById("mobile-menu-btn");
+      const menu = document.getElementById("mobile-menu");
+
+      btn.addEventListener("click", () => {
+        menu.classList.toggle("hidden");
+      });
+
+      // Lightbox functionality
+      const imageList = [
+        "image (1).png",
+        "image (2).png",
+        "image (3).png",
+        "image (4).png",
+        "image (5).png",
+        "image (7).png",
+        "image (8).png",
+        "image (9).png",
+        "image (10).png",
+        "image (11).png",
+        "image (12).png",
+        "image (13).png",
+        "image (14).png",
+        "ewwwwwwwww.png",
+        "nate-stand.png",
+        "natedas.png",
+        "natescammer.png",
+        "natreasda.png",
+        "wow.png",
+        "IMG_2793.jpg",
+        "IMG_2794.png",
+        "IMG_2795.jpg",
+      ];
+      let currentIndex = 0;
+
+      function openLightbox(src) {
+        currentIndex = imageList.indexOf(src);
+        const lightbox = document.getElementById("lightbox");
+        const lightboxImg = document.getElementById("lightbox-img");
+        const downloadBtn = document.getElementById("lightbox-download-btn");
+
+        lightboxImg.src = src;
+        downloadBtn.href = src;
+        downloadBtn.download = src;
+        lightbox.classList.add("active");
+        document.body.style.overflow = "hidden";
+      }
+
+      function closeLightbox() {
+        const lightbox = document.getElementById("lightbox");
+        lightbox.classList.remove("active");
+        document.body.style.overflow = "";
+      }
+
+      function navigateLightbox(direction) {
+        currentIndex += direction;
+        if (currentIndex < 0) currentIndex = imageList.length - 1;
+        if (currentIndex >= imageList.length) currentIndex = 0;
+
+        const src = imageList[currentIndex];
+        const lightboxImg = document.getElementById("lightbox-img");
+        const downloadBtn = document.getElementById("lightbox-download-btn");
+
+        lightboxImg.src = src;
+        downloadBtn.href = src;
+        downloadBtn.download = src;
+      }
+
+      // Close lightbox on escape key
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") closeLightbox();
+        if (e.key === "ArrowLeft") navigateLightbox(-1);
+        if (e.key === "ArrowRight") navigateLightbox(1);
+      });
+
+      // Video lightbox functionality
+      function openVideoLightbox(src) {
+        const lightbox = document.getElementById("lightbox");
+        const lightboxImg = document.getElementById("lightbox-img");
+        const downloadBtn = document.getElementById("lightbox-download-btn");
+
+        // Replace image with video element
+        const video = document.createElement("video");
+        video.src = src;
+        video.controls = true;
+        video.autoplay = true;
+        video.className = "lightbox-video";
+        video.id = "lightbox-video";
+        video.onclick = (e) => e.stopPropagation();
+
+        lightboxImg.style.display = "none";
+        lightboxImg.parentNode.insertBefore(video, lightboxImg.nextSibling);
+
+        downloadBtn.href = src;
+        downloadBtn.download = src;
+        lightbox.classList.add("active");
+        document.body.style.overflow = "hidden";
+      }
+
+      // Override closeLightbox to handle video cleanup
+      const originalCloseLightbox = closeLightbox;
+      closeLightbox = function () {
+        const video = document.getElementById("lightbox-video");
+        if (video) {
+          video.pause();
+          video.remove();
+        }
+        const lightboxImg = document.getElementById("lightbox-img");
+        lightboxImg.style.display = "";
+        originalCloseLightbox();
+      };
+
+      // Dark Mode functionality
+      function toggleDarkMode() {
+        document.body.classList.toggle("dark-mode");
+        const isDark = document.body.classList.contains("dark-mode");
+        localStorage.setItem("darkMode", isDark);
+        updateDarkModeButton(isDark);
+      }
+
+      function updateDarkModeButton(isDark) {
+        const btn = document.getElementById("dark-mode-btn");
+        if (isDark) {
+          btn.innerHTML =
+            '<i class="fas fa-sun"></i><span class="hidden sm:inline">Light</span>';
+        } else {
+          btn.innerHTML =
+            '<i class="fas fa-moon"></i><span class="hidden sm:inline">Dark</span>';
+        }
+      }
+
+      // Load dark mode preference on page load
+      (function () {
+        const savedDarkMode = localStorage.getItem("darkMode");
+        if (savedDarkMode === "true") {
+          document.body.classList.add("dark-mode");
+          updateDarkModeButton(true);
+        }
+      })();
+    </script>
+  </body>
+</html>
